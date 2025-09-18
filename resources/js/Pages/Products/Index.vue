@@ -1,5 +1,4 @@
 <script setup>
-console.log("あ");
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 
