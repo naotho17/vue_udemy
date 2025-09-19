@@ -17,7 +17,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('register'), {
+    form.post(route('products.store'), {
         //onSuccess:データが入力された場合のみフォームリセット
         onSuccess: () => form.reset('name', 'code','price','tax'),
         // onFinishにすると送信処理後必ず実行される

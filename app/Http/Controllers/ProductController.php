@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 use Inertia\Inertia;
 
 class ProductController extends Controller
@@ -29,9 +30,12 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+        // dd($request);
+        $product = new Product($request->input());
+        $product->save();
+        return redirect('products');
     }
 
     /**
