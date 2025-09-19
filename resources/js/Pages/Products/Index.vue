@@ -51,9 +51,13 @@ const props = defineProps({
                                 <td class="border border-gray-400 px-4 py-2 text-right">{{ product.price }}</td>
                                 <td class="border border-gray-400 px-4 py-2 text-right">{{ product.tax }}%</td>
                                 <td class="border border-gray-400 px-4 py-2 text-center">
-                                </td>
-                                <td class="border border-gray-400 px-4 py-2 text-center">
-                                </td>
+                                    <Link :href="route('products.edit',product.id)" 
+                                    :class="'px-4 py-2 bg-yellow-400 text-white border rounded-md text-xs'" >
+                                    <i class="fa-solid fa-edit"></i> 
+                                </Link>                                    
+                            </td>
+                            <td class="border border-gray-400 px-4 py-2 text-center">
+                            </td>
                             </tr>
                          </tbody>
                     </table>   
