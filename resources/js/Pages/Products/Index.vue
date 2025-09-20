@@ -1,10 +1,19 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import DangerButton from '@/Components/DangerButton.vue'; 
+import { Head, Link,useForm } from '@inertiajs/vue3';
 
 const props = defineProps({
     products: {type:Object}
 });
+const form = useForm({
+    id: '',
+});
+const deleteProduct = (id, name) =>{
+    if(confirm("Are you sure to delete " + name + "?")){
+        form.delete(route('products.destroy',id));
+    }
+}
 
 </script>
 
@@ -57,6 +66,9 @@ const props = defineProps({
                                 </Link>                                    
                             </td>
                             <td class="border border-gray-400 px-4 py-2 text-center">
+                                <DangerButton @click="deleteProduct(product.id,product.name)">
+                                <i class="fa-solid fa-trash"></i> 
+                                </DangerButton>                                
                             </td>
                             </tr>
                          </tbody>
