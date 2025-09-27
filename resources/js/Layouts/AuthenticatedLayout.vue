@@ -39,6 +39,12 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Dashboard
                                 </NavLink>
+                            <!-- Navigation Links -->
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('products.index')" :active="route().current('products.index')">
+                                    商品情報
+                                </NavLink>
+                            </div>                                
                             </div>
                         </div>
 
