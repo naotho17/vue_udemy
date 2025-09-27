@@ -7,7 +7,9 @@ import TextInput from '@/Components/TextInput.vue';
 const props = defineProps({
     products: {type:Object},
     search_str: String,
+    successMessage: String,
 });
+const successMessage = props.successMessage;
 const form = useForm({
     id: '',
     search_str: props.search_str || '',
@@ -57,7 +59,10 @@ const search_go = () =>{
                         />                
                     </div>
                       <span v-if="props.products.length===0" class="m-2">該当する商品はありません。</span>                                    
-                </div>   
+                </div> 
+                <div v-if="successMessage" class="alert alert-success m-2">
+                {{ successMessage }}
+                </div>           
                     <table class="table-auto border border-gray-400 w-10/12 m-3">
                         <thead>
                             <tr class="bg-gray-100">

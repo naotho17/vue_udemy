@@ -49,7 +49,7 @@ class ProductController extends Controller
         // dd($request);
         $product = new Product($request->input());
         $product->save();
-        return redirect('products');
+        return redirect()->route('products.index')->with('success_str', '登録完了しました');
     }
 
     /**
@@ -75,7 +75,7 @@ class ProductController extends Controller
     public function update(ProductRequest $request, Product $product)
     {
         $product->update($request->input());
-        return redirect('products');
+        return redirect()->route('products.index')->with('success_str', '更新完了しました');
     }
 
     /**
